@@ -1,10 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>My Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>德语造句练习</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-color: #ccffcc; /* 浅绿色背景 */
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        textarea {
+            width: 80%;
+            height: 100px;
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 16px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to my website!</h1>
+    <h1>德语造句练习</h1>
+    <button id="pronounButton">选择人称代词</button>
+    <button id="tenseButton">选择时态</button>
+    <textarea id="sentenceInput" placeholder="在这里写下你的句子"></textarea>
+
+    <script>
+        const pronouns = ["ich", "du", "er", "wir", "ihr", "sie"];
+        const tenses = ["一般现在时", "过去时", "现在完成时", "过去完成时", "第一将来时", "第二将来时"];
+
+        const pronounButton = document.getElementById("pronounButton");
+        const tenseButton = document.getElementById("tenseButton");
+        const sentenceInput = document.getElementById("sentenceInput");
+
+        pronounButton.addEventListener("click", () => {
+            const randomPronoun = pronouns[Math.floor(Math.random() * pronouns.length)];
+            sentenceInput.value = randomPronoun + " ";
+        });
+
+        tenseButton.addEventListener("click", () => {
+            const randomTense = tenses[Math.floor(Math.random() * tenses.length)];
+            sentenceInput.value += randomTense;
+        });
+    </script>
 </body>
 </html>
